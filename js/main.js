@@ -24,8 +24,9 @@
         this.el.classList.add('pressed');
         this.game.addCurrentNum();
 
-        if (this.game.getCurrentNum() === this.game.getLevel() ** 2) {
+        if (this.game.getCurrentNum() - 1 === this.game.getLevel() ** 2) {
           clearTimeout(this.game.getTimeoutId());
+          record.textContent = timer.textContent;
         }
       }
     }
@@ -56,7 +57,7 @@
 
       this.panels.forEach(panel => {
         const num = nums.splice(Math.floor(Math.random() * nums.length), 1)[0];
-        panel.activate(num);
+        panel.activate(num + 1);
       });
     }
   }
@@ -88,7 +89,7 @@
       if (typeof this.timeoutId !== 'undefined') {
         clearTimeout(this.timeoutId);
       }
-      this.currentNum = 0;
+      this.currentNum = 1;
       this.board.activate();
 
       this.startTime = Date.now();
