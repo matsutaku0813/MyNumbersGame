@@ -40,7 +40,7 @@ body{
   margin-bottom: 1px;
 }
 
-#timer{
+#time{
   margin-bottom: 8px;
   font-size: 20px;
   text-align: right;
@@ -54,9 +54,14 @@ body{
   border-radius: 4px;
   text-align: center;
   box-shadow: 0 4px 0 #d1483e;
+  margin-top: 10px;
 }
 
 #btn:active{
   margin-top: 12px;
   box-shadow: none;
+}
+
+#side p{
+  margin-bottom: 0px;
 }

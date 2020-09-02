@@ -36,12 +36,11 @@
     constructor(game) {
       this.game = game;
       this.panels = [];
-      for (let i = 0; i < this.game.getLevel() ** 2; i++) {
+      for (let i = 0; i < number.number ** 2; i++) {
         this.panels.push(new Panel(this.game));
       }
       this.setup();
     }
-
     setup() {
       const board = document.getElementById('board');
       this.panels.forEach(panel => {
@@ -62,9 +61,16 @@
     }
   }
 
+  let number = new Vue({
+    el: '#side',
+    data: {
+      number: 4
+    }
+  });
+
   class Game {
-    constructor(level) {
-      this.level = level;
+    constructor() {
+      this.level = number.number;
       this.board = new Board(this);
 
       this.currentNum = undefined;
@@ -82,7 +88,7 @@
       const container = document.getElementById('container');
       const PANEL_width = 50;
       const BOARD_PADDING = 10;
-      container.style.width = PANEL_width * this.level + BOARD_PADDING * 2 + 'px';
+      container.style.width = PANEL_width * number.number + BOARD_PADDING * 2 + 'px';
     }
 
     start() {
@@ -99,7 +105,6 @@
     runTimer() {
       const timer = document.getElementById('timer');
       timer.textContent = ((Date.now() - this.startTime) / 1000).toFixed(2);
-
       this.timeoutId = setTimeout(() => {
         this.runTimer();
       }, 10);
@@ -115,8 +120,11 @@
       return this.timeoutId;
     }
     getLevel() {
-      return this.level;
+      return number.number;
     }
   }
-  new Game(5);
+
+
+
+  new Game(number.number);
 }
