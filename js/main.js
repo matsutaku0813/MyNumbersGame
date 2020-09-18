@@ -64,7 +64,15 @@
   let number = new Vue({
     el: '#side',
     data: {
-      number: 4
+      number: 5
+    }
+  });
+  let button = new Vue({
+    el: '#button',
+    methods: {
+      change: function () {
+        alert("hello!");
+      }
     }
   });
 

@@ -18,6 +18,9 @@
       <p>1辺が指定した数字になるで<br>{{ number }}×{{ number }}</p>
       <input v-model="number">
     </div>
+    <div id="button">
+      <button @click.once="change">Change</button>
+    </div>
     <div id="btn">START</div>
   </div>
 
