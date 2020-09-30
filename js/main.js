@@ -90,6 +90,13 @@
         this.start();
       });
       this.setup();
+
+      const newbtn = document.getElementById('button');
+      newbtn.addEventListener('click', () => {
+        document.querySelectorAll('li').forEach(e => e.parentNode.removeChild(e))
+        this.setup()
+        this.board = new Board(this);
+      });
     }
 
     setup() {
